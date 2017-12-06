@@ -1,7 +1,7 @@
 {
   "name": "RestoRant",
   "version": "1.0.0",
-  "description": "A community for restaurant haters to rant about their worst experiences.",
+  "description": "A community for ice-cream lovers to rate their favourite flavors.",
   "engines": {
     "node": "6.12.x"
   },

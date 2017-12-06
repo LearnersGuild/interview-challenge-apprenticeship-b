@@ -56,7 +56,7 @@ Each requirement is assigned a point value. A fully complete requirement will ea
 
 - Navigating to `/sign-up`, loads the sign up page.
 - Navigating to `/sign-in`, loads the sign in page.
-- Navigating to `/flavors`, loads the index page for all restaurants
+- Navigating to `/flavors`, loads the index page for all flavors
 - Navigating to `/flavors/<FLAVOR ID>`, loads the detail page for a flavor.
 - The `user` object is available to you in the request via `request.user`.
 - In you change the `schema.sql` file, remember to reload the schema by running `npm run db:schema`.
@@ -64,7 +64,7 @@ Each requirement is assigned a point value. A fully complete requirement will ea
 
 # Specs
 
-## Create restaurant reviews
+## Create flavor reviews
 
 Routes:
 - [ ] __20:__ Navigating to `/flavors/<FLAVOR ID>` loads the flavor detail page. You should modify this page to add a form to create a new `review` for the flavor.
