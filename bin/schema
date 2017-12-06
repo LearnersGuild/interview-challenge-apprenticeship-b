@@ -1,0 +1,5 @@
+#! /bin/bash
+
+. "$(pwd)/.env"
+
+PGPASSWORD=${DB_PASSWORD} psql -d ${DB_NAME} -h ${DB_HOST} -U ${DB_USER} < src/data/schema.sql
