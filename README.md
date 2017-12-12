@@ -44,6 +44,17 @@ Run the following command in the terminal:
 `$ npm start`
 
 
+### Accessing the Database
+
+A database connection string has been set in the `.env` file at the top level of this repository. You can use this to connect to the database using any client you wish.
+
+If you would like to use [Postico](https://eggerapps.at/postico) to access the database you can simply use the `.pgfav` file in the interview root directory to automatically add the database connection configuration. Use the following command:
+
+```sh
+open IceCreamery.pgfav
+```
+
+
 # Coding Challenge
 
 During the interview you will have 60 minutes to complete all the specs of the challenge.
