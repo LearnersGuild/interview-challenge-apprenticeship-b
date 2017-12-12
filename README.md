@@ -100,3 +100,13 @@ Routes:
 
 Users can:
 - [ ] __20:__ Search for an ice cream flavor. For example, entering "praline" in the search form, should return the ice cream flavor "Pralines and Cream". Note: search is case insensitive.
+
+## Uninstall after the interview
+
+1. Clear the database: `npm run db:drop`
+2. Stop any running express servers
+3. Remove Postico entry for the database (if applicable)
+4. Remove command line entry/ies for the database (delete from `~/.zsh_history` or `~/.bash_history`)
+5. cd out of the usb drive from the terminal
+6. Close the IDE / text editor window(s) with the challenge files
+7. Eject the USB drive
