@@ -4,7 +4,10 @@
 <em>Calories: <%= flavor.calories %></em>
 
 <div class="rating-list">
-  <!-- TODO: add ratings for flavors -->
+  <% ratings.forEach(function(rating) { %>
+    <span><%= rating.body %></span>
+    <span><%= rating.rating %></span>
+  <% }) %>
 </div>
 
 <div class="new-rating">

@@ -15,8 +15,9 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:flavorId', (req, res, next) => {
+  let ratings = [] // TODO: fixme
   getFlavorById(req.params.flavorId)
-    .then(flavor => res.render('flavors/flavor', {flavor}))
+    .then(flavor => res.render('flavors/flavor', {flavor, ratings}))
     .catch(next)
 })
 
