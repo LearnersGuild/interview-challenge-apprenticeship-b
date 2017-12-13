@@ -1,8 +1,7 @@
 import express from 'express'
 
 import {
-  addRating,
-  deleteRating
+  addReview
 } from '../actions'
 
 const router = express.Router()

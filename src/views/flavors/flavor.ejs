@@ -3,15 +3,15 @@
 <h1><%= flavor.name %></h1>
 <em>Calories: <%= flavor.calories %></em>
 
-<div class="rating-list">
-  <% ratings.forEach(function(rating) { %>
-    <span><%= rating.body %></span>
-    <span><%= rating.rating %></span>
+<div class="reviews-list">
+  <% reviews.forEach(function(review) { %>
+    <span><%= review.body %></span>
+    <span><%= review.rating %></span>
   <% }) %>
 </div>
 
-<div class="new-rating">
-  <!-- TODO: add new rating form for flavors -->
+<div class="new-review">
+  <!-- TODO: add new review form for flavors -->
 </div>
 
 <% include ../partials/footer %>
