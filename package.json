@@ -1,13 +1,11 @@
 {
-  "name": "RestoRant",
+  "name": "IceCreamery",
   "version": "1.0.0",
   "description": "A community for ice-cream lovers to rate their favourite flavors.",
   "engines": {
     "node": "6.12.x"
   },
   "scripts": {
-    "db:create": "createdb resto_rant",
-    "db:drop": "dropdb resto_rant",
     "db:schema": "./bin/schema",
     "db:seed": "./bin/seed",
     "start": "nodemon src/index.js --exec babel-node --presets es2015,stage-2",

@@ -3,7 +3,7 @@ import express from 'express'
 import {
   getFlavors,
   getFlavorById,
-  getRantsByFlavorId
+  getReviewsByFlavorId
 } from '../actions'
 
 const router = express.Router()

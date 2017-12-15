@@ -2,19 +2,33 @@ DROP TABLE IF EXISTS flavors;
 
 DROP TABLE IF EXISTS users;
 
+DROP TABLE IF EXISTS reviews;
+
+DROP TABLE IF EXISTS sessions;
+
 CREATE TABLE flavors (
-  id SERIAL,
+  id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   calories VARCHAR(255) NOT NULL
 );
 
-
 CREATE TABLE users (
-  id SERIAL,
+  id SERIAL PRIMARY KEY,
   username VARCHAR(255) NOT NULL UNIQUE,
   email VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE "sessions" (
+"sid" varchar NOT NULL PRIMARY KEY,
+"sess" json NOT NULL,
+"expire" timestamp(6) NOT NULL
+);
 
--- TODO: Add schema for rants table here
+CREATE TABLE reviews (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER NOT NULL,
+  flavor_id INTEGER NOT NULL,
+  body TEXT,
+  rating INTEGER NOT NULL
+);

@@ -6,3 +6,8 @@ VALUES
   ('Vanilla', 'Low'),
   ('Caramel Sea Salt', 'Medium')
 ;
+
+INSERT INTO
+  users (email, username, password)
+VALUES
+  ('a@a.com', 'a', 'a');

@@ -67,10 +67,10 @@ Each requirement is assigned a point value. A fully complete requirement will ea
 
 - Navigating to `/sign-up`, loads the sign up page.
 - Navigating to `/sign-in`, loads the sign in page.
+- A user with a username `a`, and password `a` exists in the database for easy sign in.
 - Navigating to `/flavors`, loads the index page for all flavors
 - Navigating to `/flavors/<FLAVOR ID>`, loads the detail page for a flavor.
 - The `user` object is available to you in the request via `request.user`.
-- In you change the `schema.sql` file, remember to reload the schema by running `npm run db:schema`.
 - `public/script.js` is the file which contains client side JavaScript.
 
 # Specs
@@ -83,8 +83,7 @@ Routes:
 
 Users can:
 - [ ] __30:__ Create a new review for an flavor.
-  - The review has a `body`, `rating` (1 - 5).
-  - The review should belong to a user and a flavor.
+  - The schema for the `reviews` table has already been created for you. Look at `src/data/schema.sql` for the details of the schema.
   - Creating a new review should happen via AJAX (page should not refresh on form submission)
   - Once the user clicks the `Create Review` button, the newly created review should be added to the list of reviews on the flavor detail page(`/flavors/<FLAVOR ID>`) via client side JavaScript.
 
