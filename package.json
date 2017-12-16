@@ -8,6 +8,7 @@
   "scripts": {
     "db:schema": "./bin/schema",
     "db:seed": "./bin/seed",
+    "db:reset": "./bin/db-reset",
     "start": "nodemon src/index.js --exec babel-node --presets es2015,stage-2",
     "lint": "./node_modules/.bin/eslint src",
     "test": "mocha --require babel-core/register test/**/*.test.js"

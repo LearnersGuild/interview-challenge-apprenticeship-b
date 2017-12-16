@@ -1,0 +1,4 @@
+#! /bin/bash
+
+$(pwd)/bin/db-schema
+$(pwd)/bin/db-seed
