@@ -1,12 +1,11 @@
-import dotenv from 'dotenv'
-import { expect } from 'chai'
-import { addReview } from '../../src/actions'
+import env from '../env';
 
-dotenv.config()
+import { expect } from 'chai'
+import { getReviewsByFlavorId } from '../../src/actions'
 
 describe('function addReview ', () => {
   it('should create a new row in the reviews table', () => {
     // TODO: FIXME and write a real test
-    expect(1).to.equal(2)
+     expect(1).to.equal(2)
   })
 })
