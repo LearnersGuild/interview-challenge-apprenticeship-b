@@ -5,6 +5,17 @@ import session from 'express-session'
 
 import routes from './routes'
 
+import pg from 'pg'
+import connectPgSimple from 'connect-pg-simple'
+const pgSession = connectPgSimple(session)
+
+var pgPool = new pg.Pool({host: process.env.DB_HOST,
+                          port: process.env.DB_PORT,
+                          database: process.env.DB_NAME,
+                          user: process.env.DB_USER,
+                          password: process.env.DB_PASSWORD,
+                          ssl: true});
+
 export function start() { // eslint-disable-line import/prefer-default-export
   const PORT = process.env.PORT || 3000
   const ROOT_DIR = path.resolve(__dirname, '../')
@@ -18,11 +29,15 @@ export function start() { // eslint-disable-line import/prefer-default-export
   app.use(bodyParser.urlencoded({extended: false}))
   app.use(bodyParser.json())
 
-  app.use(session({ key: 'user_sid',
-                    secret: 'keyboard cat',
-                    resave: true,
-                    saveUninitialized: true,
-                    cookie: { maxAge: 60000 }}))
+  app.use(session({
+    store: new pgSession({
+      pool : pgPool,                // Connection pool
+      tableName : 'sessions'   // Use another table-name than the default "session" one
+    }),
+    secret: 'keyboard cat',
+    resave: false,
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
+  }));
 
   // all routes are initialized and mounted
   app.use(routes)

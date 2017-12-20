@@ -6,8 +6,8 @@
     "node": "6.12.x"
   },
   "scripts": {
-    "db:schema": "./bin/schema",
-    "db:seed": "./bin/seed",
+    "db:schema": "./bin/db-schema",
+    "db:seed": "./bin/db-seed",
     "db:reset": "./bin/db-reset",
     "start": "nodemon src/index.js --exec babel-node --presets es2015,stage-2",
     "lint": "./node_modules/.bin/eslint src",
@@ -17,6 +17,7 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
+    "connect-pg-simple": "^4.2.1",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
