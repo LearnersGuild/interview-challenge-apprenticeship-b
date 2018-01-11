@@ -4,7 +4,7 @@ A community for ice cream lovers to rate their favourite flavors.
 
 Part of the application has already been built for you. Your job is to take it to completion.
 
-To view this README with formatting press `ctrl+shift+M` in Atom or `shift+cmd+V` in VSCode.
+To view this README using markdown preview press `ctrl+shift+M` in Atom or `shift+cmd+V` in VSCode.
 
 ## Getting Started
 
@@ -43,7 +43,7 @@ Run the following command in the terminal:
 
 If you would like to use [Postico](https://eggerapps.at/postico) to access the database, you can run the following command to automatically connect:
 
-`$ open postgres://localhost/interview-apprenticeship-a`
+`$ open postgres://localhost/interview-apprenticeship-b`
 
 # Coding Challenge
 
