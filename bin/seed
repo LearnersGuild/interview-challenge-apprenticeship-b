@@ -1,0 +1,5 @@
+#! /bin/bash
+
+source "$(pwd)/.env"
+
+psql -d ${DB_NAME} -h ${DB_HOST} < src/data/flavors.sql

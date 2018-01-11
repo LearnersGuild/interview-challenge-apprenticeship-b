@@ -2,21 +2,25 @@ import path from 'path'
 import express from 'express'
 import bodyParser from 'body-parser'
 import session from 'express-session'
+import pg from 'pg'
+import connectPgSimple from 'connect-pg-simple'
 
 import routes from './routes'
 
-import pg from 'pg'
-import connectPgSimple from 'connect-pg-simple'
+
 const pgSession = connectPgSimple(session)
 
-var pgPool = new pg.Pool({host: process.env.DB_HOST,
-                          port: process.env.DB_PORT,
-                          database: process.env.DB_NAME,
-                          user: process.env.DB_USER,
-                          password: process.env.DB_PASSWORD,
-                          ssl: true});
+const pgPool = new pg.Pool({
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  ssl: process.env.DB_SSL.toLowerCase() === 'true',
+})
 
-export function start() { // eslint-disable-line import/prefer-default-export
+// eslint-disable-next-line import/prefer-default-export
+export function start() {
   const PORT = process.env.PORT || 3000
   const ROOT_DIR = path.resolve(__dirname, '../')
 
@@ -29,15 +33,19 @@ export function start() { // eslint-disable-line import/prefer-default-export
   app.use(bodyParser.urlencoded({extended: false}))
   app.use(bodyParser.json())
 
-  app.use(session({
-    store: new pgSession({
-      pool : pgPool,                // Connection pool
-      tableName : 'sessions'   // Use another table-name than the default "session" one
-    }),
-    secret: 'keyboard cat',
-    resave: false,
-    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
-  }));
+  app.use(
+    session({
+      // eslint-disable-next-line new-cap
+      store: new pgSession({
+        pool: pgPool, // Connection pool
+        tableName: 'sessions', // Use another table-name than the default "session" one
+      }),
+      secret: process.env.COOKIE_SECRET,
+      resave: false,
+      saveUninitialized: false,
+      cookie: {maxAge: 30 * 24 * 60 * 60 * 1000}, // 30 days
+    })
+  )
 
   // all routes are initialized and mounted
   app.use(routes)
@@ -46,7 +54,8 @@ export function start() { // eslint-disable-line import/prefer-default-export
     res.status(404).render('common/not_found')
   })
 
-  app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
+  app.use((err, req, res, next) => {
     res.status(404).render('common/error', {error: err})
   })
 

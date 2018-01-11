@@ -1,0 +1,5 @@
+#! /bin/bash
+
+source "$(pwd)/.env"
+
+createdb ${DB_NAME}

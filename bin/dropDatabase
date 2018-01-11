@@ -1,0 +1,5 @@
+#! /bin/bash
+
+source "$(pwd)/.env"
+
+dropdb --if-exists ${DB_NAME}

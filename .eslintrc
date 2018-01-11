@@ -4,7 +4,14 @@
     "semi": ["error", "never"],
     "object-curly-spacing": ["error", "never"],
     "no-use-before-define": ["error", {"functions": false, "classes": true}],
-    "no-underscore-dangle": 0
+    "no-underscore-dangle": 0,
+    "comma-dangle": ["error", {
+      "functions": "never",
+      "objects": "always-multiline",
+      "arrays": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline"
+    }]
   },
   "env": {
     "browser": true,
