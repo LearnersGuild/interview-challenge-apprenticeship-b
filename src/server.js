@@ -11,12 +11,10 @@ import routes from './routes'
 const pgSession = connectPgSimple(session)
 
 const pgPool = new pg.Pool({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  ssl: process.env.DB_SSL.toLowerCase() === 'true',
+  host: 'localhost',
+  port: 5432,
+  database: 'interview-apprenticeship-b',
+  ssl: false,
 })
 
 // eslint-disable-next-line import/prefer-default-export
@@ -40,7 +38,7 @@ export function start() {
         pool: pgPool, // Connection pool
         tableName: 'sessions', // Use another table-name than the default "session" one
       }),
-      secret: process.env.COOKIE_SECRET,
+      secret: 'onfleeeeeeeek',
       resave: false,
       saveUninitialized: false,
       cookie: {maxAge: 30 * 24 * 60 * 60 * 1000}, // 30 days

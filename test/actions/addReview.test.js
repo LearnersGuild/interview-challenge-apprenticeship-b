@@ -1,8 +1,6 @@
 /* eslint-env node, mocha */
 /* eslint-disable import/first */
 
-require('dotenv').config()
-
 import {expect} from 'chai'
 import {getReviewsByFlavorId} from '../../src/actions'
 
