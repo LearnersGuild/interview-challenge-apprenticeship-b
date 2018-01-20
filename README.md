@@ -98,8 +98,8 @@ Users can:
 ### Implement a search page for flavors
 
 Routes:
-- [ ] __20__ Navigating to `/flavors/search` loads the search page. The search page contains a form to search by a flavor
-- [ ] __20__ Sending a POST request to `/flavors/search` renders the search result page with the flavors that match the search query
+- [ ] __20:__ Navigating to `/flavors/search` loads the search page. The search page contains a form to search by a flavor
+- [ ] __20:__ Sending a POST request to `/flavors/search` renders the search result page with the flavors that match the search query
 
 Users can:
 - [ ] __20:__ Search for an ice cream flavor. For example, entering "praline" in the search form, should return the ice cream flavor "Pralines and Cream". Note: search is case insensitive.
