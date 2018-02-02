@@ -122,7 +122,13 @@ An EJS template for the search page has been created for you in `src/views/flavo
 
 _Please complete the following steps to close the interview and remove the interview challenge from your computer._
 
-1. Make a commit in the local git repository: `$ git add -Av` and then `$ git commit -m "Completed interview challenge"`
+1. Create a new branch with your name and the date (e.g. `justinhaaheim-2018-02-02`). Make a commit in that branch:
+```sh
+$ git checkout -b justinhaaheim-2018-02-02
+$ git add -Av
+$ git commit -m "Completed interview challenge"
+```
+
 2. Remove the interview database: `$ npm run db:drop`
 3. Stop any running express servers
 4. Remove Postico entry for the database (if applicable). Press `cmd+N` to open the favorites window and then select `edit > options > delete` to remove the entry.
