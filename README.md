@@ -79,30 +79,43 @@ test/                 # test files for the source files
 
 ## Specs
 
-### Create flavor reviews
+### User can add their flavor reviews
 
-Routes:
-- [ ] __20:__ Navigating to `/flavors/<FLAVOR ID>` loads the flavor detail page. You should modify this page to add a form to create a new `review` for the flavor.
-- [ ] __20:__ Sending a POST request to `/flavors/<FLAVOR ID>/reviews` creates a new review for the flavor.
+Navigating to `/flavors/<FLAVOR ID>` loads the flavor detail page. You should modify this page to add a form to create a new `review` for the flavor using AJAX (page should not refresh on form submission).
 
-Users can:
-- [ ] __30:__ Create a new review for an flavor.
-  - The schema for the `reviews` table has already been created for you. Look at `src/data/schema.sql` for the details of the schema.
-  - Creating a new review should happen via AJAX (page should not refresh on form submission)
-  - Once the user clicks the `Create Review` button, the newly created review should be added to the list of reviews on the flavor detail page(`/flavors/<FLAVOR ID>`) via client side JavaScript.
+The schema for the `reviews` table has already been created for you. Look at `src/data/schema.sql` for the details of the schema.
+
+
+- [ ] __10:__ Flavor detail pages (`/flavors/<FLAVOR ID>`) have a form with a `Create Review` button and two inputs: `body` (text) and `rating` (integer)
+- [ ] __20:__ Clicking `Create Review` sends an HTTP POST request to the server without a page refresh
+- [ ] __20:__ Sending a POST request to `/flavors/<FLAVOR ID>/reviews` creates a new review for the flavor in the database.
+- [ ] __20:__ When the user clicks `Create Review`, the body and rating for the new review are added to the page without a page refresh.
+
+
+- [ ] __10:__ If the HTTP request fails, the body and rating for the new review are not added to the page and the user is shown the message `Server Error`.
+- [ ] __10:__ If the database insert fails, the body and rating for the new review are not added to the page and the user is shown the message `Server Error`.
+- [ ] __10:__ A user cannot add reviews for any other users, including by editing client-side HTML or JavaScript.
+
 
 ### Testing
 
-- [ ] __30:__ Write a test for the `addReview` action using Mocha. This test should check that a new review is added to the database when the action is initiated. Running `npm test` passes all tests.
+Write a test for the `addReview` action using Mocha. This test should check that a new review is added to the database when the action is initiated.
 
-### Implement a search page for flavors
+- [ ] __15:__ Running `npm test` shows a passing test when a review is added to the database
+- [ ] __15:__ Running `npm test` shows a failing test if review is not added to the database
+- [ ] __15:__ Test can be run multiple times in a row without yielding false positives or negatives.
 
-Routes:
-- [ ] __20:__ Navigating to `/flavors/search` loads the search page. The search page contains a form to search by a flavor
-- [ ] __20:__ Sending a POST request to `/flavors/search` renders the search result page with the flavors that match the search query
 
-Users can:
-- [ ] __20:__ Search for an ice cream flavor. For example, entering "praline" in the search form, should return the ice cream flavor "Pralines and Cream". Note: search is case insensitive.
+### Users can search for flavors
+
+Create a search functionality that allows users to search for an ice cream flavor. For example, entering "praline" in the search form, should return the ice cream flavor "Pralines and Cream". Note: search is case insensitive.
+
+An EJS template for the search page has been created for you in `src/views/flavors`.
+
+- [ ] __20:__ Navigating to `/flavors/search` loads the search page. The search page contains a text field and a `Search` button to allow the user to search by a flavor
+- [ ] __20:__ Sending a POST request to `/flavors/search` renders a list of search results using the search page template.
+- [ ] __30:__ The search results contain only the flavors that match the search query. A flavor is considered a match when the search query is a substring or fully matches the name of the flavor. Search is case insensitive.
+
 
 # Uninstall after the interview
 
