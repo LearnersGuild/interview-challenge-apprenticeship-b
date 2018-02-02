@@ -1,6 +1,6 @@
 # IceCreamery
 
-A community for ice cream lovers to rate their favourite flavors.
+A community for ice cream lovers to rate their favorite flavors.
 
 Part of the application has already been built for you. Your job is to take it to completion.
 
