@@ -47,11 +47,11 @@ If you would like to use [Postico](https://eggerapps.at/postico) to access the d
 
 # Coding Challenge
 
-During the interview you will have 75 minutes to complete all the specs of the challenge.
+During the interview you will have 100 minutes to complete all the specs of the challenge.
 
 You'll be allowed to ask your interviewer clarifying questions and can use the internet to search for information as needed. No other aid is allowed. If you have a question about whether or not a particular form of aid is acceptable, ask your interviewer.
 
-Each requirement is assigned a point value. A fully complete requirement will earn you full points; partially complete requirements get partial points; incomplete requirements get no points. Overall completeness is determined by dividing the total points earned by the total points available. To pass the interview you must score 80% or higher.
+Each requirement is assigned a point value. Completing the requirement will earn you full points. _No partial points will be given._ Overall completeness is determined by dividing the total points earned by the total points available. To pass the interview you must score 80% or higher.
 
 ## Existing functionality
 
