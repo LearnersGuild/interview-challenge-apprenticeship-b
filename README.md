@@ -92,14 +92,15 @@ The schema for the `reviews` table has already been created for you. Look at `sr
 - [ ] __20:__ When the user clicks `Create Review`, the body and rating for the new review are added to the page without a page refresh.
 
 
-- [ ] __10:__ If the HTTP request fails, the body and rating for the new review are not added to the page and the user is shown the message `Server Error`.
-- [ ] __10:__ If the database insert fails, the body and rating for the new review are not added to the page and the user is shown the message `Server Error`.
-- [ ] __10:__ A user cannot add reviews for any other users, including by editing client-side HTML or JavaScript.
+- [ ] __10:__ If the HTTP request fails, the body and rating for the new review are not added to the page and the user is shown the message `Server Error` somewhere on the page without a page refresh.
+- [ ] __10:__ The system only allows adding reviews for the currently authenticated user, regardless of any manipulation of client-side HTML or JavaScript.
 
 
 ### Testing
 
 Write a test for the `addReview` action using Mocha. This test should check that a new review is added to the database when the action is initiated.
+
+A test file has been provided for you in `test/actions/addReview.test.js`, which will run with the command `npm test`.
 
 - [ ] __15:__ Running `npm test` shows a passing test when a review is added to the database
 - [ ] __15:__ Running `npm test` shows a failing test if review is not added to the database
@@ -108,12 +109,12 @@ Write a test for the `addReview` action using Mocha. This test should check that
 
 ### Users can search for flavors
 
-Create a search functionality that allows users to search for an ice cream flavor. For example, entering "praline" in the search form, should return the ice cream flavor "Pralines and Cream". Note: search is case insensitive.
+Create a search functionality that allows users to search for an ice cream flavor. For example, entering "praline" in the search form, should return the ice cream flavor "Pralines and Cream". Search is case insensitive. (Note: AJAX is not required for this spec.)
 
 An EJS template for the search page has been created for you in `src/views/flavors`.
 
-- [ ] __20:__ Navigating to `/flavors/search` loads the search page. The search page contains a text field and a `Search` button to allow the user to search by a flavor
-- [ ] __20:__ Sending a POST request to `/flavors/search` renders a list of search results using the search page template.
+- [ ] __10:__ Navigating to `/flavors/search` loads the search page. The search page contains a text input field and a `Search` button to allow the user to search by a flavor
+- [ ] __30:__ Clicking the `Search` button sends a POST request to `/flavors/search`, which renders a list of search results using the search page template.
 - [ ] __30:__ The search results contain only the flavors that match the search query. A flavor is considered a match when the search query is a substring or fully matches the name of the flavor. Search is case insensitive.
 
 
