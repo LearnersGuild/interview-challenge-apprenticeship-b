@@ -1,12 +1,13 @@
 <% include ../partials/header %>
 
 <h1><%= flavor.name %></h1>
-<em>Calories: <%= flavor.calories %></em>
+<h2><em>Calories: <%= flavor.calories %></em></h2>
 
+<h3>Reviews:</h3>
 <div class="reviews-list">
   <% reviews.forEach(function(review) { %>
     <span><%= review.body %></span>
-    <span><%= review.rating %></span>
+    <span>Rating: <%= review.rating %></span>
   <% }) %>
 </div>
 

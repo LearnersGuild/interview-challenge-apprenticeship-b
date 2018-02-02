@@ -3,7 +3,8 @@ import express from 'express'
 import {
   getFlavors,
   getFlavorById,
-  getReviewsByFlavorId
+  getReviewsByFlavorId,
+  addReview
 } from '../actions'
 
 const router = express.Router()
@@ -15,10 +16,18 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:flavorId', (req, res, next) => {
-  let reviews = [] // TODO: fixme
+  const {flavorId} = req.params
+
   getFlavorById(req.params.flavorId)
-    .then(flavor => res.render('flavors/flavor', {flavor, reviews}))
+    .then((flavor) => {
+      getReviewsByFlavorId(flavorId)
+        .then((reviews) => {
+          res.render('flavors/flavor', {flavor, reviews})
+        })
+    })
     .catch(next)
 })
+
+// TODO: add routes here
 
 export default router
