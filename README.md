@@ -124,7 +124,7 @@ _Please complete the following steps to close the interview and remove the inter
 
 1. Create a new branch with your name and the date (e.g. `justinhaaheim-2018-02-02`). Make a commit in that branch:
 ```sh
-$ git checkout -b justinhaaheim-2018-02-02
+$ git checkout -b yourname-YYYY-MM-DD
 $ git add -Av
 $ git commit -m "Completed interview challenge"
 ```
