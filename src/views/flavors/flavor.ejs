@@ -3,12 +3,16 @@
 <h1><%= flavor.name %></h1>
 <h2><em>Calories: <%= flavor.calories %></em></h2>
 
-<h3>Reviews:</h3>
-<div class="reviews-list">
-  <% reviews.forEach(function(review) { %>
-    <span><%= review.body %></span>
-    <span>Rating: <%= review.rating %></span>
-  <% }) %>
+<div>
+  <h3>Reviews:</h3>
+  <ul class="reviews-list">
+    <% reviews.forEach(function(review) { %>
+      <li>
+        <span><%= review.body %></span>
+        <span>Rating: <%= review.rating %></span>
+      </li>
+    <% }) %>
+  </ul>
 </div>
 
 <div class="new-review">

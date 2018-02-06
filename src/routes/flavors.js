@@ -18,12 +18,13 @@ router.get('/', (req, res, next) => {
 router.get('/:flavorId', (req, res, next) => {
   const {flavorId} = req.params
 
-  getFlavorById(req.params.flavorId)
-    .then((flavor) => {
-      getReviewsByFlavorId(flavorId)
-        .then((reviews) => {
-          res.render('flavors/flavor', {flavor, reviews})
-        })
+  Promise.all([
+    getFlavorById(flavorId),
+    getReviewsByFlavorId(flavorId)
+  ])
+    .then((results) => {
+      const [flavor, reviews] = results
+      res.render('flavors/flavor', {flavor, reviews})
     })
     .catch(next)
 })
