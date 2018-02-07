@@ -3,8 +3,7 @@ import express from 'express'
 import {
   getFlavors,
   getFlavorById,
-  getReviewsByFlavorId,
-  addReview
+  getReviewsByFlavorId
 } from '../actions'
 
 const router = express.Router()
@@ -16,16 +15,9 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:flavorId', (req, res, next) => {
-  const {flavorId} = req.params
-
-  Promise.all([
-    getFlavorById(flavorId),
-    getReviewsByFlavorId(flavorId)
-  ])
-    .then((results) => {
-      const [flavor, reviews] = results
-      res.render('flavors/flavor', {flavor, reviews})
-    })
+  let reviews = [] // TODO: get and render reviews
+  getFlavorById(req.params.flavorId)
+    .then(flavor => res.render('flavors/flavor', {flavor, reviews}))
     .catch(next)
 })
 
