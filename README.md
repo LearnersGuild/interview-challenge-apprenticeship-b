@@ -8,7 +8,7 @@ To view this README using markdown preview press `ctrl+shift+M` in Atom or `shif
 
 ## Getting Started
 
-_Before you begin coding, please complete the following steps to setup your interview environment._
+_Before you begin coding, please complete the following steps to setup your interview environment. Stop where it says "✋ Please stop here"_
 
 ### Start the recording
 
@@ -44,6 +44,12 @@ Run the following command in the terminal:
 If you would like to use [Postico](https://eggerapps.at/postico) to access the database, you can run the following command to automatically connect:
 
 `$ open postgres://localhost/interview-apprenticeship-b`
+
+---
+
+**✋ Please stop here and wait for your interviewer to start the timer**
+
+---
 
 # Coding Challenge
 
@@ -87,12 +93,11 @@ Navigating to `/flavors/<FLAVOR ID>` loads the flavor detail page. You should mo
 The schema for the `reviews` table has already been created for you. Look at `src/data/schema.sql` for the details of the schema.
 
 
-- [ ] __10:__ Flavor detail pages (`/flavors/<FLAVOR ID>`) have a form with a `Create Review` button and two inputs: `body` (text) and `rating` (integer)
-- [ ] __20:__ Flavor detail pages display the reviews that have already been created.
+- [ ] __10:__ All flavor detail pages (`/flavors/<FLAVOR ID>`) have a form with a `Create Review` button and two inputs: `body` (text) and `rating` (integer)
+- [ ] __20:__ All flavor detail pages (`/flavors/<FLAVOR ID>`) display any reviews that have already been created in the database.
 - [ ] __20:__ Clicking `Create Review` sends an HTTP POST request to the server without a page refresh
 - [ ] __20:__ Sending a POST request to `/flavors/<FLAVOR ID>/reviews` creates a new review for the flavor in the database.
 - [ ] __20:__ When the user clicks `Create Review`, the body and rating for the new review are added to the page without a page refresh.
-
 - [ ] __10:__ If the HTTP request fails, the body and rating for the new review are not added to the page and the user is shown the message `Server Error` somewhere on the page without a page refresh.
 - [ ] __10:__ The system only allows adding reviews for the currently authenticated user. If a malicious user were to modify the client-side HTML or JavaScript, they would not be able to add a review for another user.
 
@@ -101,7 +106,7 @@ The schema for the `reviews` table has already been created for you. Look at `sr
 
 _Please complete the following steps to close the interview and remove the interview challenge from your computer._
 
-1. Create a new branch with your name and the date (e.g. `justinhaaheim-2018-02-02`). Make a commit in that branch:
+1. Create a new branch with your name and the date (e.g. `yourname-2018-02-02`). Make a commit in that branch:
 ```sh
 $ git checkout -b yourname-YYYY-MM-DD
 $ git add -Av
