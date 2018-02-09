@@ -3,8 +3,7 @@ import express from 'express'
 import {
   getFlavors,
   getFlavorById,
-  getReviewsByFlavorId,
-  addReview
+  getReviewsByFlavorId
 } from '../actions'
 
 const router = express.Router()
@@ -16,15 +15,9 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:flavorId', (req, res, next) => {
-  const {flavorId} = req.params
-
+  let reviews = [] // TODO: get reviews and render to the page
   getFlavorById(req.params.flavorId)
-    .then((flavor) => {
-      getReviewsByFlavorId(flavorId)
-        .then((reviews) => {
-          res.render('flavors/flavor', {flavor, reviews})
-        })
-    })
+    .then(flavor => res.render('flavors/flavor', {flavor, reviews}))
     .catch(next)
 })
 

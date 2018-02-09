@@ -1,4 +1,4 @@
-# IceCreamery
+# IceCreamery 🍦
 
 A community for ice cream lovers to rate their favorite flavors.
 
@@ -8,7 +8,7 @@ To view this README using markdown preview press `ctrl+shift+M` in Atom or `shif
 
 ## Getting Started
 
-_Before you begin coding, please complete the following steps to setup your interview environment._
+_Before you begin coding, please complete the following steps to setup your interview environment. Stop where it says "✋ Please stop here"_
 
 ### Start the recording
 
@@ -45,6 +45,12 @@ If you would like to use [Postico](https://eggerapps.at/postico) to access the d
 
 `$ open postgres://localhost/interview-apprenticeship-b`
 
+---
+
+**✋ Please stop here and wait for your interviewer to start the timer**
+
+---
+
 # Coding Challenge
 
 During the interview you will have 100 minutes to complete all the specs of the challenge.
@@ -71,6 +77,7 @@ test/                 # test files for the source files
 
 - Navigating to `/sign-up`, loads the sign up page.
 - Navigating to `/sign-in`, loads the sign in page.
+- All other pages besides sign in and sign up require authentication.
 - A user with a username `a`, and password `a` exists in the database for easy sign in.
 - Navigating to `/flavors`, loads the index page for all flavors
 - Navigating to `/flavors/<FLAVOR ID>`, loads the detail page for a flavor.
@@ -81,48 +88,27 @@ test/                 # test files for the source files
 
 ### User can add their flavor reviews
 
-Navigating to `/flavors/<FLAVOR ID>` loads the flavor detail page. You should modify this page to add a form to create a new `review` for the flavor using AJAX (page should not refresh on form submission).
+Navigating to `/flavors/<FLAVOR ID>` loads the flavor detail page. You should modify this page so that users can add and see flavor reviews. The page should have a form to create a new `review` for the flavor, which works using AJAX (the page should not refresh on form submission).
+
+The EJS/HTML for rendering the reviews has already been created for you. Look in `src/views/flavors/flavor.ejs` for the unordered list that is passed the local variable reviews, which you must populate in the route that renders the page.
 
 The schema for the `reviews` table has already been created for you. Look at `src/data/schema.sql` for the details of the schema.
 
 
-- [ ] __10:__ Flavor detail pages (`/flavors/<FLAVOR ID>`) have a form with a `Create Review` button and two inputs: `body` (text) and `rating` (integer)
+- [ ] __10:__ All flavor detail pages (`/flavors/<FLAVOR ID>`) have a form with two inputs, `body` (text) and `rating` (integer), and a `Create Review` button.
+- [ ] __20:__ All flavor detail pages (`/flavors/<FLAVOR ID>`) display the reviews for that flavor that have already been created in the database.
 - [ ] __20:__ Clicking `Create Review` sends an HTTP POST request to the server without a page refresh
 - [ ] __20:__ Sending a POST request to `/flavors/<FLAVOR ID>/reviews` creates a new review for the flavor in the database.
 - [ ] __20:__ When the user clicks `Create Review`, the body and rating for the new review are added to the page without a page refresh.
-
-
 - [ ] __10:__ If the HTTP request fails, the body and rating for the new review are not added to the page and the user is shown the message `Server Error` somewhere on the page without a page refresh.
-- [ ] __10:__ The system only allows adding reviews for the currently authenticated user, regardless of any manipulation of client-side HTML or JavaScript.
-
-
-### Testing
-
-Write a test for the `addReview` action using Mocha. This test should check that a new review is added to the database when the action is initiated.
-
-A test file has been provided for you in `test/actions/addReview.test.js`, which will run with the command `npm test`.
-
-- [ ] __15:__ Running `npm test` shows a passing test when a review is added to the database
-- [ ] __15:__ Running `npm test` shows a failing test if review is not added to the database
-- [ ] __15:__ Test can be run multiple times in a row without yielding false positives or negatives.
-
-
-### Users can search for flavors
-
-Create a search functionality that allows users to search for an ice cream flavor. For example, entering "praline" in the search form, should return the ice cream flavor "Pralines and Cream". Search is case insensitive. (Note: AJAX is not required for this spec.)
-
-An EJS template for the search page has been created for you in `src/views/flavors`.
-
-- [ ] __10:__ Navigating to `/flavors/search` loads the search page. The search page contains a text input field and a `Search` button to allow the user to search by a flavor
-- [ ] __30:__ Clicking the `Search` button sends a POST request to `/flavors/search`, which renders a list of search results using the search page template.
-- [ ] __30:__ The search results contain only the flavors that match the search query. A flavor is considered a match when the search query is a substring or fully matches the name of the flavor. Search is case insensitive.
+- [ ] __10:__ The system only allows adding reviews for the currently authenticated user. If a malicious user were to modify the client-side HTML or JavaScript, they would not be able to add a review for another user.
 
 
 # Uninstall after the interview
 
 _Please complete the following steps to close the interview and remove the interview challenge from your computer._
 
-1. Create a new branch with your name and the date (e.g. `justinhaaheim-2018-02-02`). Make a commit in that branch:
+1. Create a new branch with your name and the date (e.g. `yourname-2018-02-02`). Make a commit in that branch:
 ```sh
 $ git checkout -b yourname-YYYY-MM-DD
 $ git add -Av
