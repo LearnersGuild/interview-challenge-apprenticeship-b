@@ -90,11 +90,13 @@ test/                 # test files for the source files
 
 Navigating to `/flavors/<FLAVOR ID>` loads the flavor detail page. You should modify this page so that users can add and see flavor reviews. The page should have a form to create a new `review` for the flavor, which works using AJAX (the page should not refresh on form submission).
 
+The EJS/HTML for rendering the reviews has already been created for you. Look in `src/views/flavors/flavor.ejs` for the unordered list that is passed the local variable reviews, which you must populate in the route that renders the page.
+
 The schema for the `reviews` table has already been created for you. Look at `src/data/schema.sql` for the details of the schema.
 
 
-- [ ] __10:__ All flavor detail pages (`/flavors/<FLAVOR ID>`) have a form with a `Create Review` button and two inputs: `body` (text) and `rating` (integer)
-- [ ] __20:__ All flavor detail pages (`/flavors/<FLAVOR ID>`) display any reviews that have already been created in the database.
+- [ ] __10:__ All flavor detail pages (`/flavors/<FLAVOR ID>`) have a form with two inputs, `body` (text) and `rating` (integer), and a `Create Review` button.
+- [ ] __20:__ All flavor detail pages (`/flavors/<FLAVOR ID>`) display the reviews for that flavor that have already been created in the database.
 - [ ] __20:__ Clicking `Create Review` sends an HTTP POST request to the server without a page refresh
 - [ ] __20:__ Sending a POST request to `/flavors/<FLAVOR ID>/reviews` creates a new review for the flavor in the database.
 - [ ] __20:__ When the user clicks `Create Review`, the body and rating for the new review are added to the page without a page refresh.
